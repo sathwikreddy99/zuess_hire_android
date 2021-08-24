@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "127383795952",
+    "project_id": "zuess-e808f",
+    "storage_bucket": "zuess-e808f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127383795952:android:ecc35c30c9b6af5c42aa35",
+        "android_client_info": {
+          "package_name": "com.zuess.zuess_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "127383795952-lcvffi377efoe9s6uv62v0ktnieq0rmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlC6Fxn4mUQx8K0jSYM7fnp7ROPkHJVtM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "127383795952-lcvffi377efoe9s6uv62v0ktnieq0rmd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

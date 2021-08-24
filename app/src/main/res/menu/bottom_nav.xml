@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/home"
+        android:id="@+id/homeIcon"
+        android:icon="@drawable/ic_baseline_home_24"/>
+    <item android:title="@string/search"
+        android:id="@+id/searchIcon"
+        android:icon="@drawable/ic_baseline_search_24"/>
+    <item android:title="@string/bookings"
+        android:id="@+id/calendarIcon"
+        android:icon="@drawable/ic_baseline_calendar_today_24"/>
+    <item android:title="@string/settings"
+        android:id="@+id/settingsIcon"
+        android:icon="@drawable/ic_baseline_dehaze_24"/>
+</menu>

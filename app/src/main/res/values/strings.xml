@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">zuess_android</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="signup">SignUp</string>
+    <string name="title_activity_jhg">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="bitch_lasanga">bitch lasanga</string>
+    <string name="home">HOME</string>
+
+    <string name="todo">TODO</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="signout">SignOut</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="item">Item</string>
+    <string name="search">search</string>
+    <string name="bookings">booking</string>
+    <string name="settings">settings</string>
+    <string name="my_profile">My Profile</string>
+    <string name="image">image</string>
+    <string name="rupees">Rs</string>
+    <string name="services_provided">Services Provided</string>
+    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</string>
+    <string name="location_icon">location icon</string>
+    <string name="title_activity_location_maps">LocationMapsActivity</string>
+    <string name="choose_location">choose location</string>
+    <string name="done">Done</string>
+</resources>
