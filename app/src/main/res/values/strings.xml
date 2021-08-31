@@ -17,7 +17,6 @@
     <string name="home">HOME</string>
 
     <string name="todo">TODO</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main2">MainActivity</string>
     <string name="signout">SignOut</string>
@@ -35,4 +34,7 @@
     <string name="title_activity_location_maps">LocationMapsActivity</string>
     <string name="choose_location">choose location</string>
     <string name="done">Done</string>
+
+<!--    google maps api key-->
+    <string name="maps_api_key">AIzaSyBopjn5GX9KKhKpcRswj38ktOfX1gS79C0</string>
 </resources>

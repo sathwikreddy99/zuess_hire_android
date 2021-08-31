@@ -3,6 +3,7 @@
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    tools:context="fragments.locationMapsUi"
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -41,12 +42,13 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <fragment
-        android:id="@+id/map"
+        android:id="@+id/location_map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="65dp"
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toTopOf="parent"
-        tools:context=".LocationMapsActivity" />
+        tools:context="fragments.locationMapsUi" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

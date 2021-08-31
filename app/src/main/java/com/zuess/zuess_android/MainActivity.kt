@@ -30,6 +30,7 @@ class MainApplication() : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView3) as NavHostFragment
         val navController = navHostFragment.navController
 
+
         //disabling action bar
         supportActionBar?.hide()
 

@@ -4,13 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/zuess/zuess_android/app/src/main/res/drawable/bottom_nav_icon_color.xml" value="0.17401315789473684" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/drawable/formshape.xml" value="0.17401315789473684" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/drawable/roundedbutton.xml" value="0.17401315789473684" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/activity_home.xml" value="0.16381578947368422" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/activity_location_maps.xml" value="0.16381578947368422" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/activity_main.xml" value="0.16381578947368422" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/activity_search.xml" value="0.16381578947368422" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/activity_settings.xml" value="0.16381578947368422" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_home_ui.xml" value="0.136" />
-        <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_location_maps.xml" value="0.16381578947368422" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_location_maps.xml" value="0.176" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_location_select_ui.xml" value="0.10400000000000001" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_loginui.xml" value="0.16381578947368422" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_profile_page_ui.xml" value="0.10400000000000001" />
