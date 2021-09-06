@@ -16,10 +16,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.motion.widget.Debug.getLocation
 import androidx.core.app.ActivityCompat
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.findFragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -45,7 +41,9 @@ import android.graphics.Canvas
 import android.graphics.Color
 
 import android.graphics.drawable.GradientDrawable
+import androidx.fragment.app.*
 import com.google.android.gms.maps.model.*
+import viewmodels.locationViewModel
 
 
 class locationMapsUi : Fragment(), OnMapReadyCallback{
@@ -55,6 +53,7 @@ class locationMapsUi : Fragment(), OnMapReadyCallback{
     val location : MutableLiveData<Location> by lazy {
         MutableLiveData<Location>()
     }
+    val locationModel : locationViewModel by viewModels()
     val mapCentre : MutableLiveData<Location> by lazy {
         MutableLiveData<Location>()
     }
@@ -136,7 +135,8 @@ class locationMapsUi : Fragment(), OnMapReadyCallback{
                 if(result != null) {
                     Log.i("location:", "${result.latitude},${result.longitude}")
                     location.value = result
-                    Log.i("","got location $location")
+                    //passing data to location viewmodel
+                    locationModel.location.value = LatLng(result.latitude,result.longitude)
                 }else{
                     Log.i("","The result is null $fusedLocationClient")
                 }
@@ -152,34 +152,6 @@ class locationMapsUi : Fragment(), OnMapReadyCallback{
         Log.i("","in request permissions")
     }
 
-
-    //callback when user chooses the permission
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        if(requestCode == 34){
-            if(grantResults.isEmpty()){
-                Log.i("", "User interaction was cancelled.")
-
-            }
-            if(grantResults[0]== PackageManager.PERMISSION_GRANTED&&grantResults[1]==PackageManager.PERMISSION_GRANTED){
-                getLocation()
-            }else{
-                view?.let { Snackbar.make(it,"enable location services",Snackbar.LENGTH_LONG)
-                    .setAction("settings",View.OnClickListener {
-                        val intent = Intent().apply {
-                            action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-                            flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                        }
-                        startActivity(intent)
-                    })
-                }
-
-            }
-        }
-    }
 
     //setting up my location when map i ready
     @SuppressLint("MissingPermission")
@@ -217,16 +189,48 @@ class locationMapsUi : Fragment(), OnMapReadyCallback{
             latLng = map.cameraPosition.target
             marker?.position = latLng
 
+
         })
 
         map.setOnCameraIdleListener(OnCameraIdleListener {
             latLng = map.getCameraPosition().target
+            Log.i("","********************$latLng")
             currLat = latLng.latitude
             currLong = latLng.longitude
             Log.e("", "currLat: $currLat")
             Log.e("", "currLong: $currLong")
             marker?.position = latLng
+            //passing data to location viewmodel
+            locationModel.location.value = latLng
         })
+    }
+
+    //callback when user chooses the permission
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if(requestCode == 34){
+            if(grantResults.isEmpty()){
+                Log.i("", "User interaction was cancelled.")
+
+            }
+            if(grantResults[0]== PackageManager.PERMISSION_GRANTED&&grantResults[1]==PackageManager.PERMISSION_GRANTED){
+                getLocation()
+            }else{
+                view?.let { Snackbar.make(it,"enable location services",Snackbar.LENGTH_LONG)
+                    .setAction("settings",View.OnClickListener {
+                        val intent = Intent().apply {
+                            action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                        }
+                        startActivity(intent)
+                    })
+                }
+
+            }
+        }
     }
 
 }

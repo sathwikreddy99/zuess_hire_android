@@ -10,6 +10,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.libraries.places.api.Places
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import fragments.startDirections
 import viewmodels.userViewModel
@@ -30,9 +31,12 @@ class MainApplication() : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView3) as NavHostFragment
         val navController = navHostFragment.navController
 
-
         //disabling action bar
         supportActionBar?.hide()
+
+        if (!Places.isInitialized()) {
+            Places.initialize(applicationContext,"AIzaSyBopjn5GX9KKhKpcRswj38ktOfX1gS79C0")
+        }
 
         //initial login logic, if user is logged in then homeactivit or else login fragment
 //        model.userLiveData.observe(this, Observer { user->
