@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "127383795952",
-    "project_id": "zuess-e808f",
-    "storage_bucket": "zuess-e808f.appspot.com"
+    "project_number": "592895059605",
+    "project_id": "zuess-2838a",
+    "storage_bucket": "zuess-2838a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:127383795952:android:ecc35c30c9b6af5c42aa35",
+        "mobilesdk_app_id": "1:592895059605:android:9eb9bdc298241159f01d9c",
         "android_client_info": {
           "package_name": "com.zuess.zuess_android"
         }
       },
       "oauth_client": [
         {
-          "client_id": "127383795952-lcvffi377efoe9s6uv62v0ktnieq0rmd.apps.googleusercontent.com",
+          "client_id": "592895059605-bod9qvbh1t171aca2ciukuk6mvf4g8ii.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBlC6Fxn4mUQx8K0jSYM7fnp7ROPkHJVtM"
+          "current_key": "AIzaSyBayud8GSfxcjolxZvraqNEgwnRtJXVokE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "127383795952-lcvffi377efoe9s6uv62v0ktnieq0rmd.apps.googleusercontent.com",
+              "client_id": "592895059605-bod9qvbh1t171aca2ciukuk6mvf4g8ii.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -14,6 +14,7 @@ import android.widget.Toolbar
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -54,7 +55,7 @@ class homeUi : Fragment() {
 
         //location id on click listener
         locationId.setOnClickListener {
-            navController.navigate(homeUiDirections.actionHomeUi2ToLocationSelectUi())
+            navController.navigate(homeUiDirections.actionHomeUiToLocationSelectUi2())
         }
 
 
@@ -85,29 +86,34 @@ class homeUi : Fragment() {
         val viewPager = view.findViewById<ViewPager2>(R.id.viewPagerHome)
         viewPager.adapter = ImageSliderAdapter(list)
 
-
-//bottom navbar implementation
+        //bottom navbar implementation
         val bottomNavbar = view.findViewById<BottomNavigationView>(R.id.bottomNavbar)
-        bottomNavbar.selectedItemId = R.id.homeIcon
-        bottomNavbar.setOnItemSelectedListener { item->
-            when(item.itemId){
-                R.id.homeIcon->{
-                    startActivity(Intent(activity, HomeActivity::class.java))
-                    true
-                }
-                R.id.searchIcon->{
-                    startActivity(Intent(activity, SearchActivity::class.java))
-                    true
-                }
-                R.id.settingsIcon->{
-                    startActivity(Intent(activity, settingsActivity::class.java))
-                    true
-                }
-                else -> false
-            }
-        }
 
+        // setting up bottom nav bar with navigation component
+        NavigationUI.setupWithNavController(bottomNavbar,navController)
 
+//        bottomNavbar.selectedItemId = R.id.homeIcon
+//        bottomNavbar.setOnItemSelectedListener { item->
+//            when(item.itemId){
+//                R.id.homeIcon->{
+//                    false
+//                }
+//                R.id.searchIcon->{
+//                    navController.navigate(homeUiDirections.actionHomeUiToSearchUi())
+//                    true
+//                }
+//                R.id.settingsIcon->{
+//                    navController.navigate((homeUiDirections.actionHomeUiToSettingsUi()))
+//                    true
+//                }
+//                R.id.chatIcon->{
+//                    navController.navigate(homeUiDirections.actionHomeUiToChatsListUi())
+//                    true
+//                }
+//                else -> false
+//            }
+//        }
+//
     }
 
 }

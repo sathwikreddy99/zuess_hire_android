@@ -55,7 +55,7 @@ class location_select_ui : Fragment() {
         var chooseLocation = view.findViewById<CardView>(R.id.location_select_choose_location)
         val navController = findNavController()
         chooseLocation.setOnClickListener {
-            navController.navigate(location_select_uiDirections.actionLocationSelectUiToLocationMapsUi())
+            navController.navigate(location_select_uiDirections.actionLocationSelectUi2ToLocationMapsUi2())
         }
 
         var locationListView = view.findViewById<RecyclerView>(R.id.search_location_list)

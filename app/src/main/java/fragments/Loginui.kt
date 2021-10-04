@@ -1,6 +1,5 @@
 package fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,8 +11,6 @@ import android.widget.EditText
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import com.google.firebase.auth.FirebaseAuth
-import com.zuess.zuess_android.HomeActivity
 import com.zuess.zuess_android.R
 import viewmodels.userViewModel
 
@@ -65,8 +62,9 @@ class loginui : Fragment() {
             if(user==null){
                 Log.i("","error")
             }else{
-                var i = Intent(activity, HomeActivity:: class.java)
-                startActivity(i)
+//                var i = Intent(activity, HomeActivity:: class.java)
+//                startActivity(i)
+                navController.navigate(loginuiDirections.actionLoginuiToHomeUi())
 
             }
         })

@@ -14,19 +14,24 @@ import services.getUserProfile
 
 
 
+// profile page view model
 class profileViewModel : ViewModel() {
     val userProfile : getUserProfile = getUserProfile()
+    //livedata of user from getUserProfile service
     val user: MutableLiveData<userData> = userProfile.userLiveData()
 
     fun validateUser(){
         userProfile.getCurrentUser()
     }
     fun print(){
-        userProfile.getUserProfile()
 //        userProfile.addData()
+        userProfile.getUserProfile()
         Log.i("","in profileViewModel : ${user.value}")
     }
 }
+
+
+// recyclerview for displaying list of services
 
 class profilePageRecyclerAdapter(val servicesList : List<Map<String,Any>>) : RecyclerView.Adapter<profilePageRecyclerAdapter.viewHolder>(){
     class viewHolder(view : View): RecyclerView.ViewHolder(view) {
@@ -50,6 +55,6 @@ class profilePageRecyclerAdapter(val servicesList : List<Map<String,Any>>) : Rec
     override fun getItemCount(): Int {
         return  servicesList.size
     }
-
+    
 
 }

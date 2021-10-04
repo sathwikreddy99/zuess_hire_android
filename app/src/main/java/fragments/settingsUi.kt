@@ -1,6 +1,5 @@
 package fragments
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,14 +9,12 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.zuess.zuess_android.HomeActivity
 import com.zuess.zuess_android.R
-import com.zuess.zuess_android.SearchActivity
-import com.zuess.zuess_android.settingsActivity
 
 
-class settings_ui : Fragment() {
+class settingsUi : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +45,7 @@ class settings_ui : Fragment() {
 
         listView.onItemClickListener = AdapterView.OnItemClickListener(){parent, view, position, id ->
             if (position == 0){
-                navController.navigate(settings_uiDirections.actionSettingsToProfilePageUi())
+                navController.navigate(settingsUiDirections.actionSettingsUiToProfilePageUi2())
             }
             
         }
@@ -56,27 +53,32 @@ class settings_ui : Fragment() {
 
         //bottom navigation bar settings
         val bottomNavbar = view.findViewById<BottomNavigationView>(R.id.bottomNavbarSettings)
-        bottomNavbar.selectedItemId = R.id.settingsIcon
+        NavigationUI.setupWithNavController(bottomNavbar,navController)
 
-        if (bottomNavbar != null) {
-            bottomNavbar.setOnItemSelectedListener { item->
-                when(item.itemId){
-                    R.id.homeIcon->{
-                        startActivity(Intent(activity, HomeActivity::class.java))
-                        true
-                    }
-                    R.id.searchIcon->{
-                        startActivity(Intent(activity, SearchActivity::class.java))
-                        true
-                    }
-                    R.id.settingsIcon->{
-                        startActivity(Intent(activity, settingsActivity::class.java))
-                        true
-                    }
-                    else -> false
-                }
-            }
-        }
+//        bottomNavbar.selectedItemId = R.id.settingsIcon
+//
+//        if (bottomNavbar != null) {
+//            bottomNavbar.setOnItemSelectedListener { item->
+//                when(item.itemId){
+//                    R.id.homeIcon->{
+//                        navController.navigate(settingsUiDirections.actionSettingsUiToHomeUi())
+//                        true
+//                    }
+//                    R.id.searchIcon->{
+//                        navController.navigate(settingsUiDirections.actionSettingsUiToSearchUi())
+//                        true
+//                    }
+//                    R.id.settingsIcon->{
+//                        false
+//                    }
+//                    R.id.chatIcon->{
+//                        navController.navigate(settingsUiDirections.actionSettingsUiToChatsListUi())
+//                        true
+//                    }
+//                    else -> false
+//                }
+//            }
+//        }
     }
 
 }

@@ -3,7 +3,8 @@ apply plugin: 'kotlin-android'
 //firebase
 apply plugin: 'com.google.gms.google-services'
 //navigation safe args component
-apply plugin: "androidx.navigation.safeargs.kotlin"
+//apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: "androidx.navigation.safeargs"
 
 
 

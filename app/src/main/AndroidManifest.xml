@@ -46,16 +46,9 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-
-        <activity android:name=".settingsActivity" />
-
-        <activity android:name=".SearchActivity" />
-
         <activity
-            android:name=".HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".MainApplication">
+            android:windowSoftInputMode="stateVisible"
+            android:name=".MainApplication">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

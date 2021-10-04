@@ -35,6 +35,7 @@
     <string name="choose_location">choose location</string>
     <string name="done">Done</string>
 
-<!--    google maps api key-->
+    <!--    google maps api key-->
     <string name="maps_api_key">AIzaSyBopjn5GX9KKhKpcRswj38ktOfX1gS79C0</string>
+    <string name="chat">chat</string>
 </resources>

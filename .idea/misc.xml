@@ -5,24 +5,38 @@
       <map>
         <entry key="..\:/zuess/zuess_android/app/src/main/res/drawable/bottom_nav_icon_color.xml" value="0.17401315789473684" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/drawable/formshape.xml" value="0.17401315789473684" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.17401315789473684" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/drawable/ic_baseline_insert_photo_24.xml" value="0.17401315789473684" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.17401315789473684" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/drawable/receiver_message_shape.xml" value="0.17401315789473684" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/drawable/roundedbutton.xml" value="0.17401315789473684" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/drawable/search_border.xml" value="0.17401315789473684" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/drawable/sender_message_shape.xml" value="0.17401315789473684" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/activity_home.xml" value="0.16381578947368422" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/activity_location_maps.xml" value="0.16381578947368422" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/activity_main.xml" value="0.16381578947368422" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/activity_search.xml" value="0.16381578947368422" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/activity_settings.xml" value="0.16381578947368422" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/chat_list_item.xml" value="0.264" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/chat_message_date_item.xml" value="0.16381578947368422" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_chat_list_ui.xml" value="0.16381578947368422" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_chat_ui.xml" value="0.152" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_chats_list_ui.xml" value="0.16381578947368422" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_home_ui.xml" value="0.136" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_location_maps.xml" value="0.2" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_location_select_ui.xml" value="0.152" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_loginui.xml" value="0.16381578947368422" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_profile_page_ui.xml" value="0.10400000000000001" />
-        <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_search_ui.xml" value="0.16381578947368422" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_search_ui.xml" value="0.152" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/fragment_settings_ui.xml" value="0.16381578947368422" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/image_slider.xml" value="0.16381578947368422" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/profile_page_list_view.xml" value="0.16381578947368422" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/profile_page_list_view_item.xml" value="0.16381578947368422" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/receiver_message_item.xml" value="0.176" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/search_location_list_item.xml" value="0.176" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/sender_message_item.xml" value="0.152" />
         <entry key="..\:/zuess/zuess_android/app/src/main/res/layout/settings_list_view_item.xml" value="0.16381578947368422" />
+        <entry key="..\:/zuess/zuess_android/app/src/main/res/menu/bottom_nav.xml" value="0.16381578947368422" />
       </map>
     </option>
   </component>

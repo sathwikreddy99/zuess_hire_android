@@ -10,8 +10,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import com.google.firebase.auth.FirebaseAuth
-import com.zuess.zuess_android.HomeActivity
 import com.zuess.zuess_android.R
 import viewmodels.userViewModel
 
@@ -47,8 +45,7 @@ class start : Fragment() {
             if(user==null){
                 navController.navigate(startDirections.actionStart2ToLoginui())
             }else{
-                var i = Intent(activity, HomeActivity:: class.java)
-                startActivity(i)
+               navController.navigate(startDirections.actionStart2ToHomeUi())
             }
 
         })
