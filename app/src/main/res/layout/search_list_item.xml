@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="125dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView10"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="10dp"
+                app:cardCornerRadius="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/searchItemPicture"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/searchItemName"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="13dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="TextView"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/cardView10"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="13dp"
+                android:text="@string/avgPrice"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/cardView10"
+                app:layout_constraintTop_toBottomOf="@+id/searchItemName" />
+
+            <TextView
+                android:id="@+id/searchItemJobTitles"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@string/lorem_ipsum"
+                android:textColor="#5A5A5A"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/cardView10"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+            <TextView
+                android:id="@+id/searchItemAvgPrice"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="13dp"
+                android:text="TextView"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="#000000"
+                android:textSize="14sp"
+
+                app:layout_constraintStart_toEndOf="@+id/textView12"
+                app:layout_constraintTop_toBottomOf="@+id/searchItemName" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,645 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fragments.freelancerEdit">
+
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar3"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#FFFFFF"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/freelancerEditBackButton"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:layout_constraintStart_toStartOf="@+id/toolbar3"
+                app:layout_constraintTop_toTopOf="@+id/toolbar3" />
+
+            <TextView
+                android:id="@+id/freelancerEditSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/save"
+                android:textColor="#00B4B4"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/toolbar3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout2"
+        tools:layout_editor_absoluteX="106dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView13"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="15dp"
+                app:cardCornerRadius="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/freelancerEditProfilePhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:src="@tools:sample/avatars" />
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/freelancerEditProfilePhotoButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="175dp"
+                android:background="@drawable/ic_baseline_edit_24"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/cardView13"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/job_titles"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditName" />
+
+            <EditText
+                android:id="@+id/freelancerEditJobTitle1"
+                android:layout_width="350dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/job_title_1"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+            <EditText
+                android:id="@+id/freelancerEditJobTitle2"
+                android:layout_width="350dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/job_title_2"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditJobTitle1" />
+
+            <EditText
+                android:id="@+id/freelancerEditJobTitle3"
+                android:layout_width="350dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/job_title_3"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditJobTitle2" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/upload_four_relavant_photos"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditJobTitle3" />
+
+            <ImageView
+                android:id="@+id/freelancerEditUploadImage1"
+                android:layout_width="250dp"
+                android:layout_height="141dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/user"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+            <ImageView
+                android:id="@+id/freelancerEditUploadImage2"
+                android:layout_width="250dp"
+                android:layout_height="141dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/user"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditUploadImage1" />
+
+            <ImageView
+                android:id="@+id/freelancerEditUploadImage3"
+                android:layout_width="250dp"
+                android:layout_height="141dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/user"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditUploadImage2" />
+
+            <ImageView
+                android:id="@+id/freelancerEditUploadImage4"
+                android:layout_width="250dp"
+                android:layout_height="141dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/user"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditUploadImage3" />
+
+            <Button
+                android:id="@+id/freelancerEditUploadButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="211dp"
+                android:layout_marginEnd="30dp"
+                android:text="@string/upload"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditJobTitle3" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/services_offered"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditDescription" />
+
+            <EditText
+                android:id="@+id/freelancerEditService1"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/service_1"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+            <EditText
+                android:id="@+id/freelancerEditPrice1"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/price"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/freelancerEditService1"
+                app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+            <EditText
+                android:id="@+id/freelancerEditService2"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/service_2"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditService1" />
+
+            <EditText
+                android:id="@+id/freelancerEditPrice2"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/price"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/freelancerEditService1"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditPrice1" />
+
+            <EditText
+                android:id="@+id/freelancerEditService3"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/service_3"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditService2" />
+
+            <EditText
+                android:id="@+id/freelancerEditPrice3"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/price"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/freelancerEditService1"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditPrice2" />
+
+            <EditText
+                android:id="@+id/freelancerEditPrice4"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/price"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/freelancerEditService1"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditPrice3" />
+
+            <EditText
+                android:id="@+id/freelancerEditService4"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/service_4"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditService3" />
+
+            <EditText
+                android:id="@+id/freelancerEditService5"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/service_5"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditService4" />
+
+            <EditText
+                android:id="@+id/freelancerEditPrice5"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/price"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/freelancerEditService1"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditPrice4" />
+
+            <EditText
+                android:id="@+id/freelancerEditService6"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/service_6"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditService5" />
+
+            <EditText
+                android:id="@+id/freelancerEditPrice6"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/price"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/freelancerEditService1"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditPrice5" />
+
+            <EditText
+                android:id="@+id/freelancerEditPrice7"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/price"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/freelancerEditService1"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditPrice6" />
+
+            <EditText
+                android:id="@+id/freelancerEditService7"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/service_7"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditService6" />
+
+            <EditText
+                android:id="@+id/freelancerEditService8"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/service_8"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditService7" />
+
+            <EditText
+                android:id="@+id/freelancerEditPrice8"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/price"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/freelancerEditService1"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditPrice7" />
+
+            <EditText
+                android:id="@+id/freelancerEditService9"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/service_9"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditService8" />
+
+            <EditText
+                android:id="@+id/freelancerEditPrice9"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/price"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/freelancerEditService1"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditPrice8" />
+
+            <EditText
+                android:id="@+id/freelancerEditPrice10"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/price"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/freelancerEditService1"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditPrice9" />
+
+            <EditText
+                android:id="@+id/freelancerEditService10"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/service_10"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditService9" />
+
+            <EditText
+                android:id="@+id/freelancerEditService11"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/service_11"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditService10" />
+
+            <EditText
+                android:id="@+id/freelancerEditPrice11"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/price"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/freelancerEditService1"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditPrice10" />
+
+            <EditText
+                android:id="@+id/freelancerEditService12"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/service_12"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditService11" />
+
+            <EditText
+                android:id="@+id/freelancerEditPrice12"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/price"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/freelancerEditService1"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditPrice11" />
+
+            <EditText
+                android:id="@+id/freelancerEditPrice13"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/price"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/freelancerEditService1"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditPrice12" />
+
+            <EditText
+                android:id="@+id/freelancerEditService13"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/service_13"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditService12" />
+
+            <EditText
+                android:id="@+id/freelancerEditService14"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/service_14"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditService13" />
+
+            <EditText
+                android:id="@+id/freelancerEditPrice14"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/price"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/freelancerEditService1"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditPrice13" />
+
+            <EditText
+                android:id="@+id/freelancerEditPrice15"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/price"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/freelancerEditService1"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditPrice14" />
+
+            <EditText
+                android:id="@+id/freelancerEditService15"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/service_15"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditService14" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/description_500_words_max"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditUpdateLocation" />
+
+            <EditText
+                android:id="@+id/freelancerEditDescription"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/enter_description_about_your_job_here"
+                android:inputType="textMultiLine"
+                android:maxLength="3000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/update_location"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/freelancerEditUploadImage4" />
+
+            <Button
+                android:id="@+id/freelancerEditUpdateLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/update_location"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+            <EditText
+                android:id="@+id/freelancerEditName"
+                android:layout_width="350dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView13" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
