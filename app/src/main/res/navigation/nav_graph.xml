@@ -3,15 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/start">
+    app:startDestination="@id/searchUi">
     <fragment
         android:id="@+id/loginui"
         android:name="fragments.loginui"
         android:label="fragment_loginui"
         tools:layout="@layout/fragment_loginui" >
         <action
-            android:id="@+id/action_loginui_to_homeUi"
-            app:destination="@id/homeUi" />
+            android:id="@+id/action_loginui_to_searchUi"
+            app:destination="@id/searchUi" />
+        <action
+            android:id="@+id/action_loginui_to_signUpUi2"
+            app:destination="@id/signUpUi2" />
+        <action
+            android:id="@+id/action_loginui_to_passwordReset"
+            app:destination="@id/passwordReset" />
     </fragment>
     <fragment
         android:id="@+id/start"
@@ -22,21 +28,12 @@
             android:id="@+id/action_start2_to_loginui"
             app:destination="@id/loginui" />
         <action
-            android:id="@+id/action_start2_to_homeUi"
-            app:destination="@id/homeUi" />
+            android:id="@+id/action_start_to_searchUi"
+            app:destination="@id/searchUi" />
     </fragment>
 <!--    home ui, search ui , chats list ui and setting ui are all interconnected
         each one is connected to the other three
 -->
-    <fragment
-        android:id="@+id/homeUi"
-        android:name="fragments.homeUi"
-        android:label="fragment_home_ui"
-        tools:layout="@layout/fragment_home_ui" >
-        <action
-            android:id="@+id/action_homeUi_to_location_select_ui2"
-            app:destination="@id/location_select_ui" />
-    </fragment>
     <fragment
         android:id="@+id/chatsListUi"
         android:name="fragments.chatsListUi"
@@ -44,11 +41,11 @@
         tools:layout="@layout/fragment_chats_list_ui" >
 
         <action
-            android:id="@+id/action_chatsListUi_to_chatUi2"
-            app:destination="@id/chatUi" />
-        <action
             android:id="@+id/action_chatsListUi_to_loginui"
             app:destination="@id/loginui" />
+        <action
+            android:id="@+id/action_chatsListUi_to_chatUi"
+            app:destination="@id/chatUi" />
     </fragment>
     <fragment
         android:id="@+id/settingsUi"
@@ -58,12 +55,34 @@
         <action
             android:id="@+id/action_settingsUi_to_profile_page_ui2"
             app:destination="@id/profile_page_ui2" />
+        <action
+            android:id="@+id/action_settingsUi_to_freelancerEdit"
+            app:destination="@id/freelancerEdit" />
+        <action
+            android:id="@+id/action_settingsUi_to_loginui"
+            app:destination="@id/loginui" />
+        <action
+            android:id="@+id/action_settingsUi_to_myFreelancingPage2"
+            app:destination="@id/myFreelancingPage2" />
+        <action
+            android:id="@+id/action_settingsUi_to_searchUi"
+            app:destination="@id/searchUi" />
+        <action
+            android:id="@+id/action_settingsUi_to_faqUi"
+            app:destination="@id/faqUi" />
     </fragment>
     <fragment
         android:id="@+id/searchUi"
         android:name="fragments.searchUi"
         android:label="fragment_search_ui"
-        tools:layout="@layout/fragment_search_ui" />
+        tools:layout="@layout/fragment_search_ui" >
+        <action
+            android:id="@+id/action_searchUi_to_location_select_ui"
+            app:destination="@id/location_select_ui" />
+        <action
+            android:id="@+id/action_searchUi_to_freelancerPage"
+            app:destination="@id/freelancerPage" />
+    </fragment>
     <fragment
         android:id="@+id/location_select_ui"
         android:name="fragments.location_select_ui"
@@ -95,10 +114,95 @@
         <argument
             android:name="receivingUserId"
             app:argType="string"/>
-    </fragment>>
+    </fragment>
     <fragment
         android:id="@+id/profile_page_ui2"
         android:name="fragments.profile_page_ui"
         android:label="fragment_profile_page_ui"
-        tools:layout="@layout/fragment_profile_page_ui" />
+        tools:layout="@layout/fragment_profile_page_ui" >
+        <action
+            android:id="@+id/action_profile_page_ui2_to_profilePageEdit"
+            app:destination="@id/profilePageEdit" />
+        <action
+            android:id="@+id/action_profile_page_ui2_to_passwordReset"
+            app:destination="@id/passwordReset" />
+    </fragment>
+    <fragment
+        android:id="@+id/freelancerPage"
+        android:name="fragments.freelancerPage"
+        android:label="fragment_freelancer_page"
+        tools:layout="@layout/fragment_freelancer_page" >
+        <argument
+            android:name="docId"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_freelancerPage_to_chatUi"
+            app:destination="@id/chatUi" />
+        <action
+            android:id="@+id/action_freelancerPage_to_freelancerServicesList"
+            app:destination="@id/freelancerServicesList" />
+    </fragment>
+    <fragment
+        android:id="@+id/freelancerEdit"
+        android:name="fragments.freelancerEdit"
+        android:label="fragment_freelancer_edit"
+        tools:layout="@layout/fragment_freelancer_edit" >
+        <action
+            android:id="@+id/action_freelancerEdit_to_location_select_ui"
+            app:destination="@id/location_select_ui" />
+        <action
+            android:id="@+id/action_freelancerEdit_to_settingsUi"
+            app:destination="@id/settingsUi" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpUi2"
+        android:name="fragments.signUpUi"
+        android:label="fragment_sign_up_ui"
+        tools:layout="@layout/fragment_sign_up_ui" >
+        <action
+            android:id="@+id/action_signUpUi2_to_loginui"
+            app:destination="@id/loginui" />
+        <action
+            android:id="@+id/action_signUpUi2_to_searchUi"
+            app:destination="@id/searchUi" />
+    </fragment>
+    <fragment
+        android:id="@+id/myFreelancingPage2"
+        android:name="fragments.myFreelancingPage"
+        android:label="fragment_my_freelancing_page"
+        tools:layout="@layout/fragment_my_freelancing_page" >
+        <argument
+            android:name="docId"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_myFreelancingPage2_to_freelancerEdit"
+            app:destination="@id/freelancerEdit" />
+        <action
+            android:id="@+id/action_myFreelancingPage2_to_freelancerServicesList"
+            app:destination="@id/freelancerServicesList" />
+    </fragment>
+    <fragment
+        android:id="@+id/freelancerServicesList"
+        android:name="fragments.freelancerServicesList"
+        android:label="fragment_freelancer_services_list"
+        tools:layout="@layout/fragment_freelancer_services_list" >
+        <argument
+            android:name="docId"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/profilePageEdit"
+        android:name="fragments.profilePageEdit"
+        android:label="fragment_profile_page_edit"
+        tools:layout="@layout/fragment_profile_page_edit" />
+    <fragment
+        android:id="@+id/faqUi"
+        android:name="fragments.faqUi"
+        android:label="fragment_faq_ui"
+        tools:layout="@layout/fragment_faq_ui" />
+    <fragment
+        android:id="@+id/passwordReset"
+        android:name="fragments.passwordReset"
+        android:label="fragment_password_reset"
+        tools:layout="@layout/fragment_password_reset" />
 </navigation>

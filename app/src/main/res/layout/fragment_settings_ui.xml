@@ -12,7 +12,7 @@
         <ListView
             android:id="@+id/settings_listview"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="300dp"
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -24,14 +24,50 @@
             android:layout_width="match_parent"
             android:layout_height="73dp"
             android:background="#fff"
+            app:itemTextColor="@color/bottom_nav_icon_color"
             app:itemIconTint="@drawable/bottom_nav_icon_color"
-            app:itemTextColor="#00B8B4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav"
-            >
+            app:menu="@menu/bottom_nav">
 
         </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+        <Button
+            android:id="@+id/settingPageFreelancerButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/roundedbutton"
+            android:text="@string/my_freelancer_profile"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsUiLoginButton" />
+
+        <Button
+            android:id="@+id/settingsUiLoginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_listview" />
+
+        <Button
+            android:id="@+id/settingsUiSignOutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/signout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingPageFreelancerButton" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

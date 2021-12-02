@@ -45,7 +45,7 @@ class start : Fragment() {
             if(user==null){
                 navController.navigate(startDirections.actionStart2ToLoginui())
             }else{
-               navController.navigate(startDirections.actionStart2ToHomeUi())
+               navController.navigate(startDirections.actionStartToSearchUi())
             }
 
         })

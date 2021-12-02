@@ -6,16 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.RecyclerView
+import androidx.navigation.compose.navArgument
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.zuess.zuess_android.R
+import org.w3c.dom.Text
 import viewmodels.profilePageRecyclerAdapter
 import viewmodels.profileViewModel
-import viewmodels.userViewModel
 
 
 class profile_page_ui : Fragment() {
@@ -37,24 +41,46 @@ class profile_page_ui : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var recyclerView = view.findViewById<RecyclerView>(R.id.profile_page_recycler_view)
+        val loadingDailog = loadingDailog(requireContext())
+        val db = FirebaseFirestore.getInstance()
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+        val navController = findNavController()
 
-        var name = view.findViewById<TextView>(R.id.profile_page_name)
-        var jobTitles = view.findViewById<TextView>(R.id.profile_page_job_titles)
-        var profilePhoto = view.findViewById<ImageView>(R.id.profile_page_profile_photo)
+        loadingDailog.showDialog()
+        //components
+        var name = view.findViewById<TextView>(R.id.userProfilePageName)
+        var profilePhoto = view.findViewById<ImageView>(R.id.profilePageProfilePhoto)
+        var email = view.findViewById<TextView>(R.id.userProfilePageEmail)
+        val backButton = view.findViewById<ImageView>(R.id.profilePageBackButton)
+        val editButton = view.findViewById<TextView>(R.id.profilePageEditButton)
+        val resetPassword = view.findViewById<Button>(R.id.profilePageResetPasswordButton)
 
         //profile model
-        val profile : profileViewModel by viewModels()
-        Log.d("", "onViewCreated: in profilepage ui")
-        profile.validateUser()
-        profile.print()
-        profile.user.observe(viewLifecycleOwner, Observer { value ->
-            val adapter1 : profilePageRecyclerAdapter = profilePageRecyclerAdapter(value.servicesOffered)
-            recyclerView.adapter = adapter1
-            name.text = value.firstName + " " + value.lastName
-            Glide.with(this).load(value.profilePhoto).into(profilePhoto)
-            Log.i("user info","${value.servicesOffered[0]["type"]}")
-        })
+        db.collection("users").whereEqualTo("userId",userId.toString()).get()
+            .addOnSuccessListener {
+                snapshot ->
+                if(snapshot.documents.size != 0){
+                    val data = snapshot.documents[0]
+                    name.text = data["first_name"].toString() + " " + data["last_name"].toString()
+                    email.text = data["email_id"].toString()
+                    Glide.with(requireContext()).load(data["profile_photo.url"].toString())
+                        .placeholder(R.drawable.user)
+                        .into(profilePhoto)
+                }
+                loadingDailog.dismissDialog()
+            }
+
+        backButton.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
+
+        editButton.setOnClickListener {
+            navController.navigate(profile_page_uiDirections.actionProfilePageUi2ToProfilePageEdit())
+        }
+
+        resetPassword.setOnClickListener {
+            navController.navigate(profile_page_uiDirections.actionProfilePageUi2ToPasswordReset())
+        }
     }
 
 }

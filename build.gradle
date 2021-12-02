@@ -10,11 +10,10 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21"
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31'
         //safe Args a component of navigation
         def nav_version = "2.3.5"
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
-
 
         //firebase
         classpath 'com.google.gms:google-services:4.3.10'
@@ -28,6 +27,7 @@ allprojects {
         //google() if for firebase
         google()
         jcenter()
+        mavenCentral()
     }
 }
 

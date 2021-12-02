@@ -8,10 +8,33 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@null"
-        android:elevation="0dp"
 
-        android:layout_height="match_parent">
+        android:elevation="0dp">
+
+        <TextView
+            android:id="@+id/searchPageLocationID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/location"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            app:layout_constraintStart_toEndOf="@+id/searchPageLocationIcon"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+
+        <ImageView
+            android:id="@+id/searchPageLocationIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="@string/location_icon"
+            android:src="@drawable/ic_baseline_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView3"
@@ -29,21 +52,21 @@
                 android:background="@drawable/search_border">
 
                 <EditText
-                    android:id="@+id/search"
+                    android:id="@+id/searchUiSearchBar"
                     android:layout_width="355dp"
                     android:layout_height="54dp"
                     android:layout_marginStart="5dp"
                     android:background="@null"
                     android:ems="10"
                     android:hint="@string/search"
-                    android:inputType="textPersonName"
+                    android:inputType="text"
                     android:padding="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"></EditText>
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/searchUiClearSearchText"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginEnd="1dp"
@@ -52,34 +75,54 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavbarSearch"
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="73dp"
             android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp"
             android:background="#fff"
             app:itemIconTint="@drawable/bottom_nav_icon_color"
-            app:itemTextColor="#00B8B4"
+            app:itemTextColor="@color/bottom_nav_icon_color"
+            app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav" />
+            app:menu="@menu/bottom_nav">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/searchUiRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="715dp"
-            android:layout_marginTop="5dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="3dp"
+            app:layout_constraintBottom_toTopOf="@+id/adViewFreelancerPage"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView3">
+            app:layout_constraintTop_toBottomOf="@+id/searchPageLocationID">
 
         </androidx.recyclerview.widget.RecyclerView>
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adViewFreelancerPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="73dp"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-8231302271929451/5101455382"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
+
+        <!--        ad-->
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

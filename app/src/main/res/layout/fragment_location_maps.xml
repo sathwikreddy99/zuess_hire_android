@@ -20,18 +20,28 @@
                 android:id="@+id/toolbar2"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
-                android:background="?attr/colorPrimary"
+                android:background="#00B4B4"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
                 map:layout_constraintStart_toStartOf="parent"
                 map:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/locationMapsBackButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                map:layout_constraintBottom_toBottomOf="parent"
+                map:layout_constraintStart_toStartOf="parent"
+                map:layout_constraintTop_toTopOf="@+id/toolbar2" />
+
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/locationMapsDoneText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="15dp"
-                android:text="@string/done"
+                android:text="@string/save"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 map:layout_constraintBottom_toBottomOf="parent"

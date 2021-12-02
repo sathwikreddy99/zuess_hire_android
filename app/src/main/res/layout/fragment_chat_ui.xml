@@ -68,18 +68,6 @@
                 app:layout_constraintStart_toEndOf="@+id/cardView9"
                 app:layout_constraintTop_toTopOf="@+id/toolbar3" />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:background="#FFFFFF"
-                android:text="send\nquotation"
-                android:textColor="#00B8B4"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/toolbar3" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -87,8 +75,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatUiRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="743dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
         android:background="#F4F4F4"
+        app:layout_constraintBottom_toTopOf="@+id/cardView7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout2" />
 
@@ -107,15 +97,17 @@
 
             <EditText
                 android:id="@+id/sendMessageText"
-                android:layout_width="315dp"
+                android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="50dp"
+                android:layout_marginEnd="5dp"
                 android:background="@drawable/search_border"
                 android:ems="10"
+                android:hint="Type message"
                 android:inputType="textMultiLine"
                 android:padding="10dp"
-                android:text="Name"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/sendMessageButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -131,7 +123,7 @@
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/chatUiSelectImage"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/ic_baseline_insert_photo_24"

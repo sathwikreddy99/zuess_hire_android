@@ -9,13 +9,14 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavbar"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="73dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:background="#fff"
         app:itemIconTint="@drawable/bottom_nav_icon_color"
-        app:itemTextColor="#00B8B4"
+        app:itemTextColor="@color/bottom_nav_icon_color"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

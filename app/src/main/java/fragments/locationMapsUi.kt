@@ -41,19 +41,32 @@ import android.graphics.Canvas
 import android.graphics.Color
 
 import android.graphics.drawable.GradientDrawable
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.*
 import com.google.android.gms.maps.model.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import viewmodels.locationViewModel
 
 
 class locationMapsUi : Fragment(), OnMapReadyCallback{
+
+    val locationModel : locationViewModel by activityViewModels()
+    val db = FirebaseFirestore.getInstance()
+    val userId = FirebaseAuth.getInstance().currentUser?.uid
+    var latLng : LatLng = LatLng(0.0,0.0)
+
+
+
     //variable
     var map : GoogleMap? = null
     var marker : Marker? = null
     val location : MutableLiveData<Location> by lazy {
         MutableLiveData<Location>()
     }
-    val locationModel : locationViewModel by viewModels()
     val mapCentre : MutableLiveData<Location> by lazy {
         MutableLiveData<Location>()
     }
@@ -61,9 +74,10 @@ class locationMapsUi : Fragment(), OnMapReadyCallback{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!Places.isInitialized()) {
+            Places.initialize(this.requireContext(),"AIzaSyCbZH87WuUirnlOYX2dMAvjO6WcEDFGvd4")
+        }
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this.context)
-
-
 
     }
 
@@ -78,7 +92,16 @@ class locationMapsUi : Fragment(), OnMapReadyCallback{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val loadingDailog = loadingDailog(requireContext())
 
+        //back button
+        val backButton = view.findViewById<ImageView>(R.id.locationMapsBackButton)
+        backButton.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
+
+
+        loadingDailog.dismissDialog()
         //initializing
         this.context?.let { Places.initialize(it,getString(R.string.maps_api_key)) }
         var placesClient = this.context?.let { Places.createClient(it) }
@@ -86,6 +109,50 @@ class locationMapsUi : Fragment(), OnMapReadyCallback{
         val mapFragment = childFragmentManager.findFragmentById(R.id.location_map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+        //implementing save button
+        val saveButton = view.findViewById<TextView>(R.id.locationMapsDoneText)
+        saveButton.setOnClickListener {
+            loadingDailog.showDialog()
+            locationModel.location.value = latLng
+            if (userId== null ){
+                Toast.makeText(requireContext(),"login to save location to database",Toast.LENGTH_LONG).show()
+                loadingDailog.dismissDialog()
+                Log.i("Location model","${locationModel.location.value}")
+            }
+            //saving the location to database
+            if (userId != null && userId !=""){
+                db.collection("users").whereEqualTo("userId",userId.toString()).get()
+                    .addOnSuccessListener { snapshot->
+                        if (locationModel.location.value != null){
+                            val data = hashMapOf<String,Any>(
+                                "location" to hashMapOf<String,Any>(
+                                    "lat" to locationModel.location.value!!.latitude,
+                                    "lng" to locationModel.location.value!!.longitude,
+                                )
+                            )
+                            db.collection("users").document(snapshot.documents[0].id).set(data,
+                                SetOptions.merge())
+                                .addOnSuccessListener {
+                                    loadingDailog.dismissDialog()
+                                }
+                        }else if (location.value != null){
+                            val data = hashMapOf<String,Any>(
+                                "location" to hashMapOf<String,Any>(
+                                    "lat" to location.value!!.latitude,
+                                    "lng" to location.value!!.longitude,
+                                )
+                            )
+                            db.collection("users").document(snapshot.documents[0].id).set(data,
+                                SetOptions.merge())
+                                .addOnSuccessListener {
+                                    loadingDailog.dismissDialog()
+                                }
+                        }
+
+                    }
+            }
+            requireActivity().onBackPressed()
+        }
 
         //checking if location permissions are granted or not
         if (
@@ -104,12 +171,14 @@ class locationMapsUi : Fragment(), OnMapReadyCallback{
         ) {
             //requesting permission when the user denied it at first
             if(this.activity?.let { ActivityCompat.shouldShowRequestPermissionRationale(it,Manifest.permission.ACCESS_FINE_LOCATION) } == true){
-                Snackbar.make(view,"enable location services",Snackbar.LENGTH_LONG)
-                    .setAction("ok",
+                Log.i("","asking denied permission")
+                Snackbar.make(view,"enable location services",50000)
+                    .setAction("enable",
                          View.OnClickListener{
                             requestPermission()
                         }
                     )
+                    .show()
             }else{
                 //request permission if user did not deny at first
                 Log.i("","requesting permission")
@@ -159,6 +228,27 @@ class locationMapsUi : Fragment(), OnMapReadyCallback{
         Log.i("","map variable $map, $location")
         if(location != null){
             var marker1 : LatLng? = location.value?.let { LatLng(it.latitude,it.longitude) }
+            latLng = location.value?.let { LatLng(it.latitude,it.longitude) }!!
+            map?.moveCamera(CameraUpdateFactory.newLatLngZoom(
+                marker1, 15F
+            )
+            )
+            marker = map?.addMarker(
+                MarkerOptions()
+                    .position(marker1)
+                    .draggable(true)
+            )
+            map?.isMyLocationEnabled = true
+            map?.uiSettings?.isMyLocationButtonEnabled = true
+        }
+    }
+
+    //setting the map to previously chosen location
+    @SuppressLint("MissingPermission")
+    fun previousChosenLocation(){
+        Log.i("","map variable $map, $location")
+        if(locationModel.location.value != null){
+            var marker1 : LatLng? = locationModel.location.value?.let { LatLng(it.latitude,it.longitude) }
             map?.moveCamera(CameraUpdateFactory.newLatLngZoom(
                 marker1, 15F
             )
@@ -176,14 +266,49 @@ class locationMapsUi : Fragment(), OnMapReadyCallback{
     //on map ready function
     override fun onMapReady(map : GoogleMap) {
         this.map = map
-        var latLng : LatLng
         var currLat : Double
         var currLong : Double
-        Log.i("","in onmapready $map")
-        location.observe(viewLifecycleOwner, Observer {
-            setLocationOnMap()
-        })
+//        loadingDailog.dismissDialog()
 
+//        loadingDailog.showDialog()
+        if (userId == null){
+            Log.i("setting LonM","${locationModel.location.value}")
+            if (locationModel.location.value == null){
+                location.observe(viewLifecycleOwner, Observer {
+                    setLocationOnMap()
+                })
+            }else{
+                previousChosenLocation()
+            }
+
+        }else{
+            db.collection("users").whereEqualTo("userId",userId).get()
+                .addOnSuccessListener {
+                        snapshot->
+//                loadingDailog.dismissDialog()
+                    Log.i("on map ready","")
+                    val data = snapshot.documents[0]
+                    Log.i("user location","${data["location.lat"]}")
+                    if (data["location.lat"] != "" && data["location.lat"] != null){
+                        locationModel.location.value = LatLng(data["location.lat"] as Double,
+                            data["location.lng"] as Double
+                        )
+                        previousChosenLocation()
+                    }else{
+                        Log.i("location mvalue 1 else","${location.value}")
+                        location.observe(viewLifecycleOwner, Observer {
+                            setLocationOnMap()
+                        })
+                    }
+                }
+        }
+
+
+//        else if (locationModel.location.value != null){
+//            Log.i("location mvalue 1 in if","${locationModel.location.value}")
+//
+//            previousChosenLocation()
+//        }
 
         map.setOnCameraMoveListener(OnCameraMoveListener {
             latLng = map.cameraPosition.target
@@ -201,7 +326,8 @@ class locationMapsUi : Fragment(), OnMapReadyCallback{
             Log.e("", "currLong: $currLong")
             marker?.position = latLng
             //passing data to location viewmodel
-            locationModel.location.value = latLng
+//            locationModel.location.value = latLng
+//            Log.i("location model values:","${locationModel.location.value}")
         })
     }
 
@@ -211,6 +337,7 @@ class locationMapsUi : Fragment(), OnMapReadyCallback{
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
+        Log.i("","in onrequestpermission function")
         if(requestCode == 34){
             if(grantResults.isEmpty()){
                 Log.i("", "User interaction was cancelled.")
@@ -218,6 +345,7 @@ class locationMapsUi : Fragment(), OnMapReadyCallback{
             }
             if(grantResults[0]== PackageManager.PERMISSION_GRANTED&&grantResults[1]==PackageManager.PERMISSION_GRANTED){
                 getLocation()
+                setLocationOnMap()
             }else{
                 view?.let { Snackbar.make(it,"enable location services",Snackbar.LENGTH_LONG)
                     .setAction("settings",View.OnClickListener {
@@ -227,6 +355,7 @@ class locationMapsUi : Fragment(), OnMapReadyCallback{
                         }
                         startActivity(intent)
                     })
+                    .show()
                 }
 
             }

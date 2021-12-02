@@ -8,15 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.cardview.widget.CardView
-import androidx.core.widget.addTextChangedListener
-import androidx.core.widget.doAfterTextChanged
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.internal.TextWatcherAdapter
 import com.zuess.zuess_android.R
 import android.text.Editable
 import android.util.Log
-import androidx.compose.ui.text.toLowerCase
+import android.widget.ImageView
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.libraries.places.api.Places
@@ -37,6 +34,9 @@ class location_select_ui : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!Places.isInitialized()) {
+            Places.initialize(this.requireContext(),"AIzaSyCbZH87WuUirnlOYX2dMAvjO6WcEDFGvd4")
+        }
         placesClient = Places.createClient(this.requireContext())
 
     }
@@ -51,36 +51,44 @@ class location_select_ui : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val loadingDailog = loadingDailog(requireContext())
+
+        //back button
+        val backButton = view.findViewById<ImageView>(R.id.locationSelectBackButton)
+        backButton.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
 
         var chooseLocation = view.findViewById<CardView>(R.id.location_select_choose_location)
         val navController = findNavController()
         chooseLocation.setOnClickListener {
+            loadingDailog.showDialog()
             navController.navigate(location_select_uiDirections.actionLocationSelectUi2ToLocationMapsUi2())
         }
 
         var locationListView = view.findViewById<RecyclerView>(R.id.search_location_list)
-        var searchText = view.findViewById<EditText>(R.id.search_location_edit_text)
+//        var searchText = view.findViewById<EditText>(R.id.searchUiSearchBar)
 
         //*********** did not assign recyler view adapter this is yet to be continued****************************
 
-        searchText.addTextChangedListener(object : TextWatcher{
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
+//        searchText.addTextChangedListener(object : TextWatcher{
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+//            }
+//
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+//            }
+//
+//            override fun afterTextChanged(s: Editable?) {
+//                if(s.toString().length > 3){
+//                    getPlacePredictions(s.toString().lowercase(Locale.getDefault()))
+//                }
+//            }
+//
+//        })
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                if(s.toString().length > 3){
-                    getPlacePredictions(s.toString().lowercase(Locale.getDefault()))
-                }
-            }
-
-        })
-
-        searchText.setOnClickListener {
-            sessionToken = AutocompleteSessionToken.newInstance()
-        }
+//        searchText.setOnClickListener {
+//            sessionToken = AutocompleteSessionToken.newInstance()
+//        }
 
     }
 

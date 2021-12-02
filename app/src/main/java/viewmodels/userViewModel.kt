@@ -1,6 +1,7 @@
 package viewmodels
 
 import Authentication
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,8 +16,8 @@ class userViewModel : ViewModel(){
     var userLiveData: MutableLiveData<String> = auth.getUserLiveData()
 
 
-    fun loginUser(email:String,password:String){
-        auth.signIn(email,password)
+    fun loginUser(email:String,password:String,context: Context){
+        auth.signIn(email,password,context)
     }
     fun signOutUser(){
         auth.signOut()

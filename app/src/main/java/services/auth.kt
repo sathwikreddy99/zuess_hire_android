@@ -2,10 +2,12 @@
 
 
 import android.app.Application
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import fragments.loadingDailog
 
 
 public class Authentication {
@@ -16,17 +18,21 @@ public class Authentication {
     }
 
 // sign in function
-    fun signIn(email : String,password : String ){
+    fun signIn(email : String,password : String ,context: Context){
         var result: FirebaseUser?
         auth= FirebaseAuth.getInstance()
+//        val loadingDailog = loadingDailog(context)
+//        loadingDailog.showDialog()
         auth.signInWithEmailAndPassword(email,password)
-            .addOnCompleteListener {
+                .addOnCompleteListener {
                 task ->
+//                loadingDailog.showDialog()
                 if(task.isSuccessful){
                     result = auth.currentUser
                     userMutableLiveData.postValue(result?.uid)
                     userUid = result?.uid ?: ""
                 }else{
+                    userMutableLiveData.postValue(null)
                     Log.e("","LoginFailed")
                 }
             }

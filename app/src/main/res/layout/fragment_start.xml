@@ -18,7 +18,7 @@
             android:layout_marginTop="289dp"
             android:layout_marginEnd="167dp"
             android:layout_marginBottom="423dp"
-            android:text="@string/bitch_lasanga"
+            android:text="@string/zuess_hire"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">zuess_android</string>
+    <string name="app_name">Zuess Hire</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
@@ -10,6 +10,7 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="avgPrice">Avg price around: Rs</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
@@ -36,6 +37,63 @@
     <string name="done">Done</string>
 
     <!--    google maps api key-->
-    <string name="maps_api_key">AIzaSyBopjn5GX9KKhKpcRswj38ktOfX1gS79C0</string>
+    <string name="maps_api_key">AIzaSyCbZH87WuUirnlOYX2dMAvjO6WcEDFGvd4</string>
     <string name="chat">chat</string>
+    <string name="location"><u>Location</u></string>
+    <string name="chat1">Chat</string>
+    <string name="my_freelancer_profile">My freelancer profile</string>
+    <string name="save">Save</string>
+    <string name="job_titles">Job titles</string>
+    <string name="upload">Upload</string>
+    <string name="service_1">service 1</string>
+    <string name="price">Price</string>
+    <string name="job_title_1">Job title 1</string>
+    <string name="job_title_2">Job title 2</string>
+    <string name="job_title_3">Job title 3</string>
+    <string name="upload_four_relavant_photos">Upload four relavant photos</string>
+    <string name="services_offered">Services offered</string>
+    <string name="service_2">service 2</string>
+    <string name="service_3">service 3</string>
+    <string name="service_4">service 4</string>
+    <string name="service_5">service 5</string>
+    <string name="service_6">service 6</string>
+    <string name="service_7">service 7</string>
+    <string name="service_8">service 8</string>
+    <string name="service_9">service 9</string>
+    <string name="service_10">service 10</string>
+    <string name="service_11">service 11</string>
+    <string name="service_12">service 12</string>
+    <string name="service_13">service 13</string>
+    <string name="service_14">service 14</string>
+    <string name="service_15">service 15</string>
+    <string name="description_500_words_max">Description (500 words max)</string>
+    <string name="enter_description_about_your_job_here">Enter description about your job here</string>
+    <string name="update_location">Update location</string>
+    <string name="skip">Skip</string>
+    <string name="zuess_hire">Zuess Hire</string>
+    <string name="edit">Edit</string>
+    <string name="name">Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="faq1">How to use the app?</string>
+    <string name="faq1_answer">This app helps you find freelancers near you, and allows you to chat with them.</string>
+    <string name="faq2">What is the search radius?</string>
+    <string name="faq2_answer">The search radius is currently set to 15km.</string>
+    <string name="faq3">Contact info.</string>
+    <string name="faq3_answer">If you have any issues, or if you find any bugs in the app please contact us at zuesshire.root@gmail.com. Your feedback will help
+     us improve the app and is much appreciated.</string>
+    <string name="faq4">Images not loading?</string>
+    <string name="faq4_answer">Check internet connection or reload the page again.</string>
+    <string name="faq5">Map not working?</string>
+    <string name="faq5_answer">First allow location usage for the app, then try reloading, or just reload again
+        if the location permission is already allowed.</string>
+    <string name="faq6">Delete my data?</string>
+    <string name="faq6_answer">Send us an email at zuesshire.root@gmail.com with subject "Delete my data", and details
+        of your request.</string>
+    <string name="faq7">APP crashing?</string>
+    <string name="faq7_answer">check your internet connection</string>
+    <string name="forgot_password"><u>Forgot Password</u></string>
+    <string name="title_activity_side">sideActivity</string>
+    <string name="reset">Reset</string>
+
 </resources>
